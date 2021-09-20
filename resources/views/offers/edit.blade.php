@@ -36,28 +36,14 @@
                 <div class="card-header">{{__('messages.Insert Offer Data')}}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('offers.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('offers.update',$offer->id) }}">
                         @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Choose Offer Image</label>
-
-                            <div class="col-md-6">
-                                <input name="photo" type="file" class="form-control" >
-                                @error('photo')
-                                <h4 style="color:red;">{{$message}}</h4>
-
-                                @enderror
-
-
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{__('messages.Offer Name')}}</label>
 
                             <div class="col-md-6">
-                                <input name="name" type="text" class="form-control" >
+                                <input name="name" type="text" value="{{$offer->name}}" class="form-control" >
                                 @error('name')
                                 <h4 style="color:red;">{{$message}}</h4>
 
@@ -71,7 +57,7 @@
                             <label for="price" class="col-md-4 col-form-label text-md-right">{{__('messages.Offer Price')}}</label>
 
                             <div class="col-md-6">
-                                <input name="price" type="text" class="form-control" >
+                                <input name="price" type="text" value="{{$offer->price}}" class="form-control" >
                                 @error('price')
                                 <h4 style="color:red;">{{$message}}</h4>
 
